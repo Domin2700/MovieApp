@@ -1,0 +1,46 @@
+<!-- Modal -->
+<div class="modal  fade" id="modalDetail" tabindex="-1" role="dialog" aria-labelledby="modalmodalDetailLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md " role="document">
+        <div class="modal-content  bg-dark">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalDetailTitle">
+                    <span (click)="markAsFavorite(movie.id, !favorite)">
+                        <span *ngIf="!favorite" title="Agregar a favoritos">
+                         <i class="far fa-heart puntero"></i>
+                        </span>
+                    <span *ngIf="favorite" title="Quitar de favoritos">
+                         <i  class="fas  fa-heart puntero text-danger"></i>
+                        </span >
+                        
+                      </span> {{ movie.title }}
+
+                </h5>
+                <h5 class="modal-title ml-auto">
+                    <span>
+                        {{movie.release_date | date: 'yyyy'}} <i class="fas fa-star text-warning"></i> {{movie.vote_average}}
+                      </span>
+                </h5>
+                <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
+                  
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </div>
+
+            <!-- Body -->
+            <div class="modal-body">
+
+                <div class="card bg-dark" style="width: 29.3rem;">
+                    <img class="card-img-top " [src]="poster+movie.poster_path" height="500px" alt="Card image cap">
+                    <div class="card-body pb-2">
+                        <h4 class="card-title text-white">
+                            Sipnosis
+                        </h4>
+                        <p class="card-text text-white">
+                            {{movie.overview}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
